@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mysqlquestion.demo.dao.HistoryMapper">
+    <resultMap id="BaseResultMap" type="com.mysqlquestion.demo.dao.entity.History">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="user_id" jdbcType="VARCHAR" property="user_id"/>
+        <result column="question_id" jdbcType="VARCHAR" property="question_id"/>
+        <result column="time" jdbcType="TIME" property="time"/>
+        <result column="result" jdbcType="INTEGER" property="result"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,question_id,time,result
+    </sql>
+    <!--根据用户id查询历史提交信息-->
+    <select id="searchHistoryByuserId" parameterType="java.lang.String"  resultType="java.util.Map">
+        select *
+        from history_list
+        where user_id = #{id,jdbcType=VARCHAR}
+    </select>
+    <!--查询全部历史提交信息-->
+    <select id="searchHistoryAll"  resultType="java.util.Map">
+        select *
+        from history_list
+    </select>
+
+    <!--添加提交历史记录-->
+    <update id="uploadCommit" parameterType="java.util.Map">
+        insert into history_list(user_id,question_id,time,result)
+        values
+        (#{user_id},#{question_id},now(),#{result})
+    </update>
+</mapper>

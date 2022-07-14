@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mysqlquestion.demo.dao.TestMapper">
+    <resultMap id="BaseResultMap" type="com.mysqlquestion.demo.dao.entity.Test">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="able" jdbcType="INTEGER" property="able"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,able
+    </sql>
+    <!--查询对应做题情况-->
+    <select id="resultSearch"  resultType="java.util.Map">
+        select *
+        from user
+    </select>
+
+    <!--查询对应做题情况(查询版)-->
+    <select id="resultSearchselect"  parameterType="java.lang.String" resultType="java.util.Map">
+        ${sql}
+    </select>
+
+    <!--删除user表-->
+    <update id="dropTableUser">
+        drop table if exists user
+    </update>
+
+    <!--重新创建user表-->
+    <update id="createTableUser">
+        create table user(
+            id varchar(30) primary key,
+            name varchar(30),
+            able integer
+        )
+    </update>
+
+    <update id="insertTableUser1">
+        insert into user
+        (id,name,able)
+        values
+        ("1","zyz",0),
+        ("2","wth",3),
+        ("3","cy",7),
+        ("4","zy",3),
+        ("5","wpx",4)
+    </update>
+
+</mapper>

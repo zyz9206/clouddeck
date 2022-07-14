@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mysqlquestion.demo.dao.AnswerMapper">
+    <resultMap id="BaseResultMap" type="com.mysqlquestion.demo.dao.entity.Test">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="able" jdbcType="INTEGER" property="able"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,able
+    </sql>
+    <!--答案查询1-->
+    <select id="answerOne"  resultType="java.util.Map">
+        select *
+        from Question1ans;
+    </select>
+
+    <!--答案查询2-->
+    <select id="answerTwo"  resultType="java.util.Map">
+        select *
+        from Question2ans;
+    </select>
+
+    <!--答案查询3-->
+    <select id="answerThree"  resultType="java.util.Map">
+        select *
+        from Question3ans;
+    </select>
+
+    <!--答案查询4-->
+    <select id="answerFour"  resultType="java.util.Map">
+        select *
+        from Question4ans;
+    </select>
+
+    <!--答案查询5-->
+    <select id="answerFive"  resultType="java.util.Map">
+        select *
+        from Question5ans;
+    </select>
+
+    <!--答案查询6-->
+    <select id="answerSix"  resultType="java.util.Map">
+        select *
+        from Question6ans;
+    </select>
+
+    <!--答案查询7-->
+    <select id="answerSeven"  resultType="java.util.Map">
+        select *
+        from Question7ans;
+    </select>
+</mapper>

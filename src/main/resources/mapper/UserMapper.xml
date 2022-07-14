@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mysqlquestion.demo.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.mysqlquestion.demo.dao.entity.User">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="Question_1" jdbcType="INTEGER" property="Question_1"/>
+        <result column="Question_2" jdbcType="INTEGER" property="Question_2"/>
+        <result column="Question_3" jdbcType="INTEGER" property="Question_3"/>
+        <result column="Question_4" jdbcType="INTEGER" property="Question_4"/>
+        <result column="Question_5" jdbcType="INTEGER" property="Question_5"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,username,password,Question_1,Question_2,Question_3,Question_4,Question_5
+    </sql>
+    <!--查询全部用户信息-->
+    <select id="searchforallUser"  resultType="com.mysqlquestion.demo.dao.entity.User">
+        select *
+        from user_info
+    </select>
+</mapper>

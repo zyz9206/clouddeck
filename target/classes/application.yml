@@ -1,0 +1,42 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    dynamic:
+      primary: info
+      strict: false
+      datasource:
+        #master database
+        info:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/mysqldemo?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+          username: root
+          password: 1q2w3e4r
+        #远程数据库，用于检查结果
+        test:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://124.220.160.120:3306/test?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+          username: root
+          password: 123456
+        #测试数据库，用于测试是否好用
+        trial:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://124.220.160.120:3306/zyz?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+          username: root
+          password: 123456
+
+
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/mysqldemo?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+#    username: root
+#    password: 1q2w3e4r
+
+mybatis:
+  # ?? mapper.xml ???
+  mapper-locations: classpath:mapper/*.xml
+  #????????,?????????????? mapper.xml ??????????????
+  type-aliases-package: com.mysqlquestion.demo.dao.entity
+  configuration:
+    #???????????????????
+    map-underscore-to-camel-case: true

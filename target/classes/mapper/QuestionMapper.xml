@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mysqlquestion.demo.dao.QuestionMapper">
+    <resultMap id="BaseResultMap" type="com.mysqlquestion.demo.dao.entity.Question">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="detail" jdbcType="VARCHAR" property="detail"/>
+        <result column="answer" jdbcType="VARCHAR" property="answer"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,title,detail,answer
+    </sql>
+    <!--根据题目id查询题目信息-->
+    <select id="searchQuestionById" parameterType="java.lang.String"  resultType="com.mysqlquestion.demo.dao.entity.Question">
+        select *
+        from question_info
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+</mapper>

@@ -1,0 +1,46 @@
+div {
+    float: left;
+}
+.beijing1 {
+    background-color: aqua;
+    width: 120px;
+    height: 700px;
+    border-width: 5px;
+    border-style: solid;
+}
+.beijing2 {
+    width: 500px;
+    height: 700px;
+    border-width: 5px;
+    border-style: solid;
+}
+.beijing3 {
+    width: 700px;
+    height: 700px;
+    border-width: 5px;
+    border-style: solid;
+}
+.beijing4 {
+    width: 120px;
+    height: 700px;
+    border-width: 5px;
+    border-style: solid;
+}
+.jiange80 {
+   margin-bottom: 80px;
+}
+.jiange50 {
+    margin-bottom: 50px;
+ }
+ .hezi1{
+    width: 500px;
+    height: 200px;
+    border-width: 5px;
+    border-style: solid;
+ }
+ .hezi2{
+    width: 500px;
+    height: 484px;
+    border-width: 5px;
+    border-style: solid;
+ }
